@@ -1,16 +1,10 @@
-function Tags({tags, setFullTags}) {
+import {useContext} from "react";
+import {TodoListContext} from "../TodoListContext";
 
-    const setTags = (data) => {
-        setFullTags(data)
-        window.localStorage.setItem('ToDoListTags', JSON.stringify(data));
-    }
+function Tags() {
 
-    const onAddTags = _ => {
-        const input = document.getElementById('input-tag');
-        setTags([...tags, input.value])
-        input.value = '';
-    }
-
+    const { onAddTags } = useContext(TodoListContext);
+      
     return (
         <div className="row border-bottom pb-2">
             <div className="col-8">
